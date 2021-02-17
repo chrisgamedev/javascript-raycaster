@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Raycaster</title>
+</head>
+
+<style>
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+.canvas-container {
+    position: relative;
+}
+canvas {
+    position: absolute;
+}
+
+.controls {
+    position: absolute;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+p {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
+
+<body>
+
+    <div class="canvas-container">
+        <canvas id="screen"></canvas>
+
+        <div class="controls">
+            <p>Space to toggle 2D and 2.5D</p>
+            <p>WASD to move</p>
+            <p>Mouse/Arrow keys to rotate</p>
+            <p>[ and ] keys to change detail</p>
+            <p id="detailDisplay">Detail: 1</p>
+        </div>
+    </div>
+
+    <script src="js/functions.js"></script>
+    <script src="js/wall.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        onload = () => {
+            init();
+        }
+    </script>
+</body>
