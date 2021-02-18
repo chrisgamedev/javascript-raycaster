@@ -42,6 +42,7 @@ var time = {
     }
 };
 
+// https://keycode.info/
 var keyCode = {
     w: 87,
     s: 83,

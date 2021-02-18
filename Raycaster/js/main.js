@@ -40,7 +40,8 @@ var game = {
     objs: [],
     input: {
         keys: {},
-        mouse: { x: 0, y: 0, click: false }
+        mouse: { x: 0, y: 0, click: false },
+        mousePos: { x: 0, y: 0, w: 1, h: 1 }
     },
     scroll: { x: 0, y: 0 },
     draw2D: false,
@@ -58,8 +59,18 @@ function addInputListeners() {
     window.addEventListener("resize", resize)
     window.addEventListener("keydown", function (event) { game.input.keys[event.which] = true });
     window.addEventListener("keyup", function (event) { delete game.input.keys[event.which] });
-    window.addEventListener("mousemove", function (event) { game.input.mouse.x = event.movementX + document.body.style.marginLeft; game.input.mouse.y = event.movementY + document.body.style.marginTop; });
-    window.addEventListener("mousedown", function (event) { canvas.requestPointerLock(); game.input.mouse.click = true });
+    window.addEventListener("mousemove", function (event) { 
+        game.input.mouse.x = event.movementX + document.body.style.marginLeft; 
+        game.input.mouse.y = event.movementY + document.body.style.marginTop; 
+        game.input.mousePos.x = event.clientX;
+        game.input.mousePos.y = event.clientY;
+    });
+    window.addEventListener("mousedown", function (event) { 
+        if (!collision(game.input.mousePos, { x: 0, y: 0, w: 220, h: 160 }))
+            canvas.requestPointerLock(); 
+
+        game.input.mouse.click = true 
+    });
     window.addEventListener("mouseup", function (event) { game.input.mouse.click = false });
 }
 
@@ -95,11 +106,11 @@ function loop() {
     time.calculateDeltaTime();
 
     // change detail
-    if (219 in game.input.keys)
+    if (79 in game.input.keys)
         if (detail > 1)
             detail--;
 
-    if (221 in game.input.keys)
+    if (80 in game.input.keys)
         if (detail < 10)
             detail++;
 

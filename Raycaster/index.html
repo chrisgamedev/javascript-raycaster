@@ -2,9 +2,19 @@
 
 <head>
     <title>Raycaster</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <style>
+@font-face {
+    font-family: "Default";
+    src: url("../assets/fonts/Lato-Regular.ttf");
+}
+
+* {
+    font-family: "Default";
+}
+
 body {
     overflow: hidden;
     margin: 0;
@@ -22,12 +32,17 @@ canvas {
     display: inline-block;
     background-color: black;
     color: white;
-    padding: 5px;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 p {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(169, 169, 255);
 }
 
 </style>
@@ -38,10 +53,12 @@ p {
         <canvas id="screen"></canvas>
 
         <div class="controls">
+            <a class="link fa fa-home" href="../"></a><br>
+            <a class="link" href="https://github.com/timeBenter/Javascript-Raycaster"><u>Source Code</u></a>
             <p>Space to toggle 2D and 2.5D</p>
             <p>WASD to move</p>
             <p>Mouse/Arrow keys to rotate</p>
-            <p>[ and ] keys to change detail</p>
+            <p>O/P keys to change detail</p>
             <p id="detailDisplay">Detail: 1</p>
         </div>
     </div>
